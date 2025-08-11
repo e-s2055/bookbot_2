@@ -1,5 +1,6 @@
 ### imports functions from stats.py 
-from stats import get_num_words, character_count, chars_dict_to_sorted_list
+from stats import get_num_words, get_chars_dict, chars_dict_to_sorted_list
+import sys
 
 def get_book_text(filepath):
     """
@@ -15,7 +16,10 @@ def main():
     """
     print("============ BOOKBOT ============")
     
-    book_path = "books/frankenstein.txt"
+    if len(sys.argv) < 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    book_path = sys.argv[1]
     get_book = get_book_text(book_path)
     print(f"Analyzing book found at {book_path}...")
 
@@ -24,7 +28,7 @@ def main():
     print(f"Found {num_words} total words")
 
     print("--------- Character Count -------")    
-    char_count = character_count(get_book)
+    char_count = get_chars_dict(get_book)
     char_sorted_list = chars_dict_to_sorted_list(char_count)
     for character in char_sorted_list:
         if not character["char"].isalpha():

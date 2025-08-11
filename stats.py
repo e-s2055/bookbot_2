@@ -5,7 +5,7 @@ def get_num_words(x):
         words = x.split()
         return len(words)
 
-def character_count(x):
+def get_chars_dict(x):
         """
         Takes text from book as a string, converts to lowercase, returns number of times characters appear; incl. symbols and spaces
         """
