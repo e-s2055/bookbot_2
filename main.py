@@ -1,3 +1,5 @@
+### imports function from stats.py 
+from stats import get_num_words
 
 def get_book_text(filepath):
     """
@@ -7,19 +9,12 @@ def get_book_text(filepath):
         file_contents = f.read()
         return file_contents
 
-def book_word_count(x):
-        """
-        Accepts text from book as string and returns number of words in string
-        """
-        words = x.split()
-        return len(words)
-
 def main():
     """
     Calls get_book_text() with the relative path "book/frankenstein.txt" and prints the result
     """
     get_book = get_book_text("books/frankenstein.txt")
-    num_words = book_word_count(get_book)
+    num_words = get_num_words(get_book)
     print(f"{num_words} words found in the document")
 
 ### Executes the program
